@@ -1,0 +1,78 @@
+.cnode {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 210px;
+  padding: 10px 12px;
+  background: #16213e;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  transition: all 0.18s;
+}
+
+.cnode:hover {
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+}
+
+.cnode.is-configured {
+  border-color: rgba(29, 158, 117, 0.55);
+}
+
+.cnode-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cnode-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.cnode-type {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.38);
+}
+
+.cnode-label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cnode-status {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.cnode-ok   { color: #4ade80; }
+.cnode-warn { color: #EF9F27; }
+
+/* connection dots */
+.cnode-handle {
+  width: 9px !important;
+  height: 9px !important;
+  background: #4fc3f7 !important;
+  border: 2px solid #16213e !important;
+}
+
+/* left accent per type */
+.cnode-source      { border-left: 3px solid #1D9E75; }
+.cnode-transform   { border-left: 3px solid #7F77DD; }
+.cnode-destination { border-left: 3px solid #378ADD; }

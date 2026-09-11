@@ -1,0 +1,217 @@
+.preview-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.preview-modal {
+  background: linear-gradient(135deg, #0f0c29, #1a1a2e);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  width: 90vw;
+  max-width: 1100px;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.6);
+  animation: previewIn 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
+}
+
+@keyframes previewIn {
+  from { transform: scale(0.92); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.preview-header h2 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.preview-header p {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 12px;
+}
+
+.preview-close {
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: #aaa;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.2s;
+}
+
+.preview-close:hover {
+  background: rgba(192, 57, 43, 0.7);
+  color: white;
+}
+
+.preview-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.preview-sidebar {
+  width: 240px;
+  min-width: 240px;
+  background: rgba(0, 0, 0, 0.25);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 16px 12px;
+  overflow-y: auto;
+}
+
+.preview-group-label {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 14px 8px 8px;
+}
+
+.preview-group-label:first-child {
+  margin-top: 0;
+}
+
+.preview-table-btn {
+  padding: 9px 12px;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+  cursor: pointer;
+  margin-bottom: 4px;
+  transition: all 0.15s;
+}
+
+.preview-table-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: white;
+}
+
+.preview-table-btn.active {
+  background: linear-gradient(135deg, rgba(55,138,221,0.3), rgba(127,119,221,0.3));
+  color: white;
+  font-weight: 600;
+}
+
+.preview-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 24px;
+  overflow: hidden;
+}
+
+.preview-content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.preview-table-name {
+  color: #4fc3f7;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: monospace;
+}
+
+.preview-count {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.preview-loading,
+.preview-error,
+.preview-empty {
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  padding: 40px;
+  font-size: 14px;
+}
+
+.preview-error {
+  color: #EF9F27;
+}
+
+.preview-table-wrap {
+  flex: 1;
+  overflow: auto;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+}
+
+.preview-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.preview-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.preview-table th {
+  background: #16213e;
+  color: #4fc3f7;
+  text-align: left;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-family: monospace;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  white-space: nowrap;
+}
+
+.preview-table td {
+  color: rgba(255, 255, 255, 0.8);
+  padding: 9px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  white-space: nowrap;
+}
+
+.preview-table tbody tr {
+  transition: background 0.15s;
+}
+
+.preview-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.preview-table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+.preview-title { display: flex; align-items: center; gap: 12px; color: #4FC3F7; }
+.preview-title h2 { margin: 0; }
+.preview-title p { margin: 2px 0 0; }
+
+.preview-table-btn {
+  display: flex; align-items: center; gap: 9px;
+}
+.preview-close { display: flex; align-items: center; justify-content: center; }
+.preview-error { display: flex; align-items: center; justify-content: center; gap: 8px; }

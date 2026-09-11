@@ -1,0 +1,297 @@
+.config-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.config-panel {
+  position: fixed;
+  width: 300px;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5),
+              0 0 0 1px rgba(255,255,255,0.05),
+              inset 0 1px 0 rgba(255,255,255,0.1);
+  pointer-events: all;
+  animation: popIn 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 1001;
+  overflow: hidden;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.85); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+
+.config-glow {
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  opacity: 0.15;
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.config-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  position: relative;
+}
+
+.config-header-left h3 {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.config-type-badge {
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.badge-source      { background: rgba(29,158,117,0.25); color: #1D9E75; }
+.badge-transform   { background: rgba(127,119,221,0.25); color: #7F77DD; }
+.badge-destination { background: rgba(55,138,221,0.25); color: #378ADD; }
+
+.config-close {
+  background: rgba(255,255,255,0.08);
+  border: none;
+  color: #aaa;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.config-close:hover {
+  background: rgba(192, 57, 43, 0.6);
+  color: white;
+}
+
+.config-body {
+  padding: 12px 16px;
+}
+
+.config-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.config-label {
+  color: rgba(255,255,255,0.9);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 2px;
+}
+
+.config-hint {
+  color: rgba(255,255,255,0.4);
+  font-size: 10px;
+  margin-top: -4px;
+  margin-bottom: 6px;
+}
+
+.config-option {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 9px 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.config-option:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.2);
+  transform: translateX(2px);
+}
+
+.config-option.selected {
+  border-color: transparent;
+  transform: translateX(2px);
+}
+
+.source-option.selected      { background: rgba(29,158,117,0.2);  border-color: #1D9E75; }
+.transform-option.selected   { background: rgba(127,119,221,0.2); border-color: #7F77DD; }
+.destination-option.selected { background: rgba(55,138,221,0.2);  border-color: #378ADD; }
+
+.option-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.option-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.option-label {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.option-desc {
+  color: rgba(255,255,255,0.4);
+  font-size: 10px;
+}
+
+.config-footer {
+  display: flex;
+  gap: 8px;
+  padding: 10px 16px 14px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.config-cancel-btn {
+  flex: 1;
+  padding: 8px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  color: rgba(255,255,255,0.6);
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s;
+}
+
+.config-cancel-btn:hover {
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+.config-save-btn {
+  flex: 2;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.config-save-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #1D9E75, #378ADD);
+  z-index: 0;
+}
+
+.config-save-btn span {
+  position: relative;
+  z-index: 1;
+}
+
+.config-save-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+.config-save-btn:disabled { opacity: 0.35; cursor: not-allowed; transform: none; }
+
+.config-sub {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.config-sublabel {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.config-select,
+.config-input {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 9px 11px;
+  color: #fff;
+  font-size: 13px;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.config-select:focus,
+.config-input:focus {
+  border-color: #7F77DD;
+}
+
+.config-select option {
+  background: #1a1a2e;
+}
+
+.config-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.config-preview {
+  background: rgba(127, 119, 221, 0.12);
+  border: 1px solid rgba(127, 119, 221, 0.3);
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: #a78bfa;
+  font-family: monospace;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* --- icon alignment --- */
+.option-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  color: rgba(255, 255, 255, 0.75);
+  flex-shrink: 0;
+}
+
+.config-option.selected .option-icon { color: #fff; }
+
+.config-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.config-save-btn span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}

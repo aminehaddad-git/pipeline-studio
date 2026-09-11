@@ -1,0 +1,381 @@
+/* ══════════════════════════════════════════════════════════
+   ModalTheme.css — unifies every modal with the new design
+   Loaded last so it overrides the original stylesheets.
+   ══════════════════════════════════════════════════════════ */
+
+/* ─────────── OVERLAYS ─────────── */
+.preview-overlay, .su-overlay, .upload-overlay, .users-overlay,
+.sched-overlay, .lib-overlay, .dash-overlay {
+  background: rgba(0, 0, 0, 0.72) !important;
+  backdrop-filter: blur(6px) !important;
+}
+
+/* ─────────── MODAL CARDS ─────────── */
+.preview-modal, .su-modal, .upload-modal, .users-modal,
+.sched-modal, .lib-modal, .dash-modal {
+  background: #11152A !important;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.6) !important;
+  font-family: 'Inter', -apple-system, 'Segoe UI', sans-serif !important;
+}
+
+/* ─────────── HEADERS ─────────── */
+.preview-header, .su-header, .upload-header, .users-header,
+.sched-header, .lib-header, .dash-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  padding: 16px 20px !important;
+}
+
+.preview-header h2, .su-header h2, .upload-header h2, .users-header h2,
+.sched-header h2, .lib-header h2, .dash-header h2 {
+  color: #E8EAF2 !important;
+  font-size: 17px !important;
+  font-weight: 700 !important;
+}
+
+.preview-header p, .su-header p, .upload-header p, .users-header p,
+.sched-header p, .lib-header p, .dash-header p {
+  color: #626B87 !important;
+  font-size: 11.5px !important;
+}
+
+/* ─────────── CLOSE BUTTONS ─────────── */
+.preview-close, .su-close, .upload-close, .users-close,
+.sched-close, .lib-close, .dash-close {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  border-radius: 8px !important;
+  color: #9AA3BF !important;
+  width: 32px !important;
+  height: 32px !important;
+  transition: all 0.15s !important;
+}
+.preview-close:hover, .su-close:hover, .upload-close:hover, .users-close:hover,
+.sched-close:hover, .lib-close:hover, .dash-close:hover {
+  background: rgba(229, 72, 77, 0.18) !important;
+  border-color: rgba(229, 72, 77, 0.40) !important;
+  color: #FF8A8F !important;
+}
+
+/* ─────────── INPUTS & SELECTS ─────────── */
+.users-form input, .users-form select,
+.sched-field input, .sched-field select,
+.config-select, .config-input,
+.su-map-row select {
+  background: #0B0E1A !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-radius: 8px !important;
+  color: #E8EAF2 !important;
+  font-family: 'Inter', sans-serif !important;
+}
+.users-form input:focus, .users-form select:focus,
+.sched-field input:focus, .sched-field select:focus,
+.su-map-row select:focus {
+  border-color: #4FC3F7 !important;
+}
+option { background: #11152A !important; }
+
+/* ─────────── PRIMARY / ACTION BUTTONS ─────────── */
+.users-add-btn, .users-create-btn,
+.sched-add-btn, .sched-create-btn,
+.su-submit, .upload-submit-btn {
+  background: linear-gradient(135deg, #1D9E75, #378ADD) !important;
+  border: none !important;
+  border-radius: 9px !important;
+  color: #fff !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  transition: filter 0.15s !important;
+}
+.users-add-btn:hover, .users-create-btn:hover,
+.sched-add-btn:hover, .sched-create-btn:hover,
+.su-submit:hover, .upload-submit-btn:hover { filter: brightness(1.08) !important; }
+
+.su-cancel, .upload-cancel-btn, .config-cancel-btn {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 9px !important;
+  color: #9AA3BF !important;
+  font-family: 'Inter', sans-serif !important;
+}
+.su-cancel:hover, .upload-cancel-btn:hover, .config-cancel-btn:hover {
+  background: rgba(255, 255, 255, 0.10) !important;
+  color: #E8EAF2 !important;
+}
+
+/* ─────────── TABLES ─────────── */
+.preview-table th, .users-table th {
+  background: #0B0E1A !important;
+  color: #626B87 !important;
+  font-size: 9.5px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.8px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10) !important;
+  font-family: 'Inter', sans-serif !important;
+}
+.preview-table td, .users-table td {
+  color: #E8EAF2 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.045) !important;
+  font-size: 12px !important;
+}
+.preview-table tbody tr:hover, .users-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.025) !important;
+}
+.preview-table tbody tr:nth-child(even) { background: transparent !important; }
+.preview-table-wrap, .users-table-wrap {
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 11px !important;
+}
+
+/* ─────────── LIST ITEMS (schedules, pipelines, targets) ─────────── */
+.sched-item, .lib-item, .su-target, .upload-target,
+.config-option, .sched-freq, .sched-form, .users-form, .su-mapping {
+  background: rgba(255, 255, 255, 0.035) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 11px !important;
+}
+.sched-item:hover, .lib-item:hover, .su-target:hover,
+.upload-target:hover, .config-option:hover, .sched-freq:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+.su-target.selected, .upload-target.selected,
+.config-option.selected, .sched-freq.selected {
+  border-color: #4FC3F7 !important;
+  background: rgba(79, 195, 247, 0.10) !important;
+}
+
+/* ─────────── SIDEBAR (data preview) ─────────── */
+.preview-sidebar {
+  background: rgba(0, 0, 0, 0.25) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+.preview-table-btn { color: #9AA3BF !important; border-radius: 8px !important; }
+.preview-table-btn:hover { background: rgba(255, 255, 255, 0.06) !important; color: #E8EAF2 !important; }
+.preview-table-btn.active {
+  background: rgba(79, 195, 247, 0.14) !important;
+  color: #4FC3F7 !important;
+}
+.preview-group-label { color: #626B87 !important; }
+.preview-table-name { color: #4FC3F7 !important; }
+.preview-count {
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: #9AA3BF !important;
+}
+
+/* ─────────── MESSAGES ─────────── */
+.users-message.success, .sched-message.success, .lib-message.success,
+.su-result.success, .upload-result.success {
+  background: rgba(29, 158, 117, 0.12) !important;
+  border: 1px solid rgba(29, 158, 117, 0.35) !important;
+  color: #4ADE80 !important;
+  border-radius: 9px !important;
+}
+.users-message.error, .sched-message.error, .lib-message.error,
+.su-result.error, .upload-result.error {
+  background: rgba(229, 72, 77, 0.12) !important;
+  border: 1px solid rgba(229, 72, 77, 0.32) !important;
+  color: #FF8A8F !important;
+  border-radius: 9px !important;
+}
+
+/* ─────────── DASHBOARD ─────────── */
+.dash-chart {
+  background: rgba(255, 255, 255, 0.025) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 12px !important;
+}
+.dash-chart h3 { color: #E8EAF2 !important; font-size: 13px !important; }
+.kpi-card {
+  border: 1px solid rgba(255, 255, 255, 0.09) !important;
+  border-radius: 13px !important;
+}
+.kpi-value { color: #E8EAF2 !important; }
+.kpi-label { color: #626B87 !important; }
+.dash-refresh {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #9AA3BF !important;
+  border-radius: 8px !important;
+}
+.dash-refresh:hover { background: rgba(255,255,255,0.10) !important; color: #E8EAF2 !important; }
+
+/* ─────────── STEP INDICATOR (smart upload) ─────────── */
+.su-step { background: rgba(255, 255, 255, 0.05) !important; color: #626B87 !important; }
+.su-step.active { background: linear-gradient(135deg, #1D9E75, #378ADD) !important; color: #fff !important; }
+.su-dropzone {
+  border: 2px dashed rgba(255, 255, 255, 0.16) !important;
+  border-radius: 13px !important;
+}
+.su-dropzone:hover, .su-dropzone.dragover {
+  border-color: #4FC3F7 !important;
+  background: rgba(79, 195, 247, 0.05) !important;
+}
+.su-sys-col {
+  background: rgba(79, 195, 247, 0.10) !important;
+  color: #E8EAF2 !important;
+  border-radius: 7px !important;
+}
+
+/* ─────────── CHATBOT ─────────── */
+.chatbot-fab {
+  background: linear-gradient(135deg, #1D9E75, #378ADD) !important;
+  box-shadow: 0 6px 22px rgba(55, 138, 221, 0.45) !important;
+}
+.chatbot-window {
+  background: #11152A !important;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6) !important;
+  font-family: 'Inter', sans-serif !important;
+}
+.chatbot-header {
+  background: rgba(0, 0, 0, 0.22) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+.chatbot-title { color: #E8EAF2 !important; }
+.chatbot-msg.bot .chatbot-bubble {
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: #E8EAF2 !important;
+}
+.chatbot-msg.user .chatbot-bubble {
+  background: linear-gradient(135deg, #1D9E75, #378ADD) !important;
+}
+.chatbot-bubble strong { color: #4FC3F7 !important; }
+.chatbot-msg.user .chatbot-bubble strong { color: #fff !important; }
+.chatbot-suggestion {
+  background: rgba(79, 195, 247, 0.09) !important;
+  border: 1px solid rgba(79, 195, 247, 0.22) !important;
+  color: #4FC3F7 !important;
+  border-radius: 13px !important;
+}
+.chatbot-suggestion:hover { background: rgba(79, 195, 247, 0.18) !important; }
+.chatbot-input-area {
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+.chatbot-input-area input {
+  background: #0B0E1A !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  color: #E8EAF2 !important;
+  font-family: 'Inter', sans-serif !important;
+}
+.chatbot-input-area input:focus { border-color: #4FC3F7 !important; }
+.chatbot-input-area button {
+  background: linear-gradient(135deg, #1D9E75, #378ADD) !important;
+}
+
+/* ─────────── LOGIN ─────────── */
+.login-container {
+  background: radial-gradient(circle at 25% 20%, #1a1f3a 0%, #0B0E1A 55%) !important;
+  font-family: 'Inter', sans-serif !important;
+}
+.login-card {
+  background: rgba(17, 21, 42, 0.85) !important;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  border-radius: 18px !important;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55) !important;
+}
+.login-logo h1 {
+  background: linear-gradient(135deg, #4FC3F7, #1D9E75) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+.login-logo p { color: #626B87 !important; }
+.login-field label { color: #9AA3BF !important; font-size: 10px !important; }
+.login-field input {
+  background: #0B0E1A !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-radius: 9px !important;
+  color: #E8EAF2 !important;
+  font-family: 'Inter', sans-serif !important;
+}
+.login-field input:focus {
+  border-color: #4FC3F7 !important;
+  box-shadow: 0 0 0 3px rgba(79, 195, 247, 0.12) !important;
+}
+.login-btn {
+  background: linear-gradient(135deg, #1D9E75, #378ADD) !important;
+  border-radius: 9px !important;
+  font-family: 'Inter', sans-serif !important;
+}
+.login-error {
+  background: rgba(229, 72, 77, 0.12) !important;
+  border: 1px solid rgba(229, 72, 77, 0.32) !important;
+  color: #FF8A8F !important;
+}
+.login-footer p { color: #626B87 !important; }
+
+/* ─────────── GLOBAL FONT + SCROLLBARS IN MODALS ─────────── */
+.preview-modal *, .su-modal *, .users-modal *,
+.sched-modal *, .lib-modal *, .dash-modal *,
+.chatbot-window *, .login-card * {
+  font-family: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+}
+.preview-table th, .preview-table td { font-family: 'SF Mono', Consolas, monospace !important; }
+
+/* icon alignment for the converted modals */
+.su-header h2, .sched-header h2, .lib-header h2,
+.su-result, .sched-message, .lib-message,
+.su-close, .sched-close, .lib-close,
+.su-target-icon, .su-drop-icon, .su-done-icon,
+.sched-freq-icon, .sched-toggle-btn, .sched-delete-btn,
+.sched-add-btn, .sched-create-btn,
+.su-cancel, .su-submit,
+.lib-empty-icon, .lib-item-name, .lib-btn {
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+}
+
+.su-close, .sched-close, .lib-close,
+.su-target-icon, .su-drop-icon, .su-done-icon,
+.sched-freq-icon, .sched-toggle-btn, .sched-delete-btn,
+.sched-add-btn, .sched-create-btn, .su-cancel, .su-submit,
+.lib-empty-icon, .lib-btn {
+  justify-content: center;
+}
+
+.lib-item-name { justify-content: flex-start; }
+.su-result, .sched-message, .lib-message { justify-content: flex-start; }
+
+.su-target-icon, .sched-freq-icon { color: #4FC3F7; }
+.su-drop-icon { color: #626B87; }
+.su-done-icon { color: #4ADE80; }
+.lib-empty-icon { color: #626B87; }
+.lib-item-name svg { color: #4FC3F7; }
+.lib-btn { gap: 6px; font-size: 11.5px !important; }
+
+/* ─────────── EXPORT BUTTONS ─────────── */
+.export-btn {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 13px;
+  background: rgba(29, 158, 117, 0.12) !important;
+  border: 1px solid rgba(29, 158, 117, 0.35) !important;
+  border-radius: 8px !important;
+  color: #4ADE80 !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.export-btn:hover:not(:disabled) {
+  background: rgba(29, 158, 117, 0.22) !important;
+  border-color: rgba(29, 158, 117, 0.6) !important;
+}
+.export-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.preview-header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

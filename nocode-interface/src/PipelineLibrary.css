@@ -1,0 +1,220 @@
+.lib-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.lib-modal {
+  background: linear-gradient(135deg, #0f0c29, #1a1a2e);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  width: 90vw;
+  max-width: 640px;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.6);
+  animation: libIn 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes libIn {
+  from { transform: scale(0.92); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+
+.lib-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.lib-header h2 {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.lib-header p {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 12px;
+}
+
+.lib-close {
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: #aaa;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.lib-close:hover {
+  background: rgba(192, 57, 43, 0.7);
+  color: white;
+}
+
+.lib-body {
+  padding: 20px 24px;
+}
+
+.lib-message {
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.lib-message.success {
+  background: rgba(29, 158, 117, 0.15);
+  border: 1px solid rgba(29, 158, 117, 0.4);
+  color: #4ade80;
+}
+
+.lib-message.error {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #f87171;
+}
+
+.lib-loading,
+.lib-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.lib-empty-icon {
+  font-size: 40px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.lib-empty p {
+  color: #fff;
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.lib-empty span {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.lib-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lib-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 14px 16px;
+  transition: all 0.2s;
+}
+
+.lib-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.lib-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.lib-item-name {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.lib-item-desc {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+}
+
+.lib-item-meta {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 11px;
+}
+
+.lib-item-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.lib-btn {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 7px 12px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.lib-load {
+  background: rgba(79, 195, 247, 0.12);
+  color: #4fc3f7;
+}
+
+.lib-load:hover {
+  background: rgba(79, 195, 247, 0.25);
+}
+
+.lib-run {
+  background: rgba(29, 158, 117, 0.15);
+  color: #4ade80;
+}
+
+.lib-run:hover {
+  background: rgba(29, 158, 117, 0.3);
+}
+
+.lib-run:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.lib-delete {
+  background: rgba(255, 255, 255, 0.06);
+  color: #f87171;
+  width: 36px;
+}
+
+.lib-delete:hover {
+  background: rgba(239, 68, 68, 0.2);
+}
+
+.lib-refresh {
+  background: rgba(239, 159, 39, 0.15);
+  color: #EF9F27;
+}
+
+.lib-refresh:hover {
+  background: rgba(239, 159, 39, 0.3);
+}
+
+.lib-refresh:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

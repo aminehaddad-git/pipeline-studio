@@ -1,0 +1,46 @@
+# ── Secrets ──
+.env
+*.env
+!.env.example
+
+# ── Python ──
+__pycache__/
+*.py[cod]
+*.so
+venv/
+.venv/
+env/
+*.egg-info/
+
+# ── Node ──
+node_modules/
+build/
+dist/
+npm-debug.log*
+.eslintcache
+
+# ── Data files ──
+*.csv
+*.xlsx
+*.xls
+
+# ── LaTeX build ──
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# ── OS / IDE ──
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ── Misc ──
+*.bak
+*.tmp

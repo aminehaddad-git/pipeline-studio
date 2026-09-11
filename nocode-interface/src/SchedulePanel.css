@@ -1,0 +1,331 @@
+.sched-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.sched-modal {
+  background: linear-gradient(135deg, #0f0c29, #1a1a2e);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  width: 90vw;
+  max-width: 620px;
+  max-height: 88vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.6);
+  animation: schedIn 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes schedIn {
+  from { transform: scale(0.92); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+
+.sched-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sched-header h2 {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.sched-header p {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 12px;
+}
+
+.sched-close {
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: #aaa;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.sched-close:hover {
+  background: rgba(192, 57, 43, 0.7);
+  color: white;
+}
+
+.sched-body {
+  padding: 20px 24px;
+}
+
+.sched-message {
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.sched-message.success {
+  background: rgba(29, 158, 117, 0.15);
+  border: 1px solid rgba(29, 158, 117, 0.4);
+  color: #4ade80;
+}
+
+.sched-message.error {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #f87171;
+}
+
+.sched-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.sched-count {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 13px;
+}
+
+.sched-add-btn {
+  background: linear-gradient(135deg, #1D9E75, #378ADD);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.sched-add-btn:hover {
+  opacity: 0.9;
+}
+
+.sched-form {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+
+.sched-field {
+  margin-bottom: 16px;
+}
+
+.sched-field label {
+  display: block;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.sched-field input,
+.sched-field select {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: #fff;
+  font-size: 13px;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.sched-field input:focus,
+.sched-field select:focus {
+  border-color: #4fc3f7;
+}
+
+.sched-field select option {
+  background: #1a1a2e;
+}
+
+.sched-freq-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sched-freq {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 12px;
+}
+
+.sched-freq:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.sched-freq.selected {
+  border-color: #4fc3f7;
+  background: rgba(79, 195, 247, 0.1);
+}
+
+.sched-freq-icon {
+  grid-row: 1 / 3;
+  font-size: 24px;
+  align-self: center;
+}
+
+.sched-freq-label {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.sched-freq-desc {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 11px;
+}
+
+.sched-create-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #1D9E75, #378ADD);
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.sched-create-btn:hover {
+  opacity: 0.9;
+}
+
+.sched-loading,
+.sched-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+}
+
+.sched-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sched-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 14px 16px;
+  transition: all 0.2s;
+}
+
+.sched-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.sched-item.paused {
+  opacity: 0.6;
+}
+
+.sched-item-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.sched-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: block;
+}
+
+.sched-dot.active {
+  background: #4ade80;
+  box-shadow: 0 0 8px rgba(74, 222, 128, 0.6);
+  animation: pulse 2s infinite;
+}
+
+.sched-dot.paused {
+  background: #888;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.sched-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.sched-item-name {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.sched-item-desc {
+  color: #4fc3f7;
+  font-size: 12px;
+}
+
+.sched-item-meta {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 11px;
+}
+
+.sched-item-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.sched-toggle-btn,
+.sched-delete-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.2s;
+}
+
+.sched-toggle-btn:hover {
+  background: rgba(79, 195, 247, 0.2);
+}
+
+.sched-delete-btn:hover {
+  background: rgba(239, 68, 68, 0.2);
+}

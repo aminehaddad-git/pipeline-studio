@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+psycopg2-binary
+pandas
+openpyxl
+python-multipart
+python-jose[cryptography]
+passlib
+bcrypt==4.0.1
+APScheduler
+python-dotenv
+Faker

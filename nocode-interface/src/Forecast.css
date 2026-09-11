@@ -1,0 +1,131 @@
+.fc-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.72);
+  backdrop-filter: blur(6px);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2000;
+}
+
+.fc-modal {
+  background: var(--bg-1, #11152A);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 16px;
+  width: 94vw; max-width: 1000px;
+  height: 90vh;
+  display: flex; flex-direction: column;
+  box-shadow: 0 24px 70px rgba(0,0,0,0.6);
+  overflow: hidden;
+  animation: fcIn 0.2s cubic-bezier(0.34,1.4,0.64,1);
+}
+@keyframes fcIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+.fc-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  flex-shrink: 0;
+}
+.fc-title { display: flex; align-items: center; gap: 12px; color: #4FC3F7; }
+.fc-title h2 { margin: 0; font-size: 17px; color: #E8EAF2; }
+.fc-title p  { margin: 2px 0 0; font-size: 11.5px; color: #626B87; }
+
+.fc-head-actions { display: flex; gap: 7px; }
+.fc-icon {
+  display: flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 8px; color: #9AA3BF; cursor: pointer;
+  transition: all 0.15s;
+}
+.fc-icon:hover { background: rgba(255,255,255,0.10); color: #E8EAF2; }
+.fc-icon.danger:hover { background: rgba(229,72,77,0.18); color: #FF8A8F; border-color: rgba(229,72,77,0.4); }
+
+.fc-controls {
+  display: flex; gap: 14px;
+  padding: 14px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  flex-shrink: 0;
+}
+.fc-field { display: flex; flex-direction: column; gap: 5px; }
+.fc-field label {
+  font-size: 9.5px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.9px; color: #626B87;
+}
+.fc-field select {
+  background: #0B0E1A;
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 8px;
+  padding: 8px 11px;
+  color: #E8EAF2; font-family: inherit; font-size: 12.5px;
+  outline: none; cursor: pointer; min-width: 150px;
+}
+.fc-field select:focus { border-color: #4FC3F7; }
+.fc-field select option { background: #11152A; }
+
+.fc-body { flex: 1; overflow-y: auto; padding: 18px 20px 24px; }
+
+.fc-msg { padding: 40px; text-align: center; color: #626B87; font-size: 13px; }
+.fc-msg.err {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  color: #EF9F27; padding: 24px;
+}
+
+.fc-summary { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
+.fc-chip {
+  display: flex; align-items: center; gap: 8px;
+  padding: 7px 13px;
+  background: rgba(29,158,117,0.12);
+  border: 1px solid rgba(29,158,117,0.32);
+  border-radius: 20px;
+  font-size: 12px; color: #4ADE80;
+}
+.fc-chip b { color: #fff; }
+.fc-chip em {
+  font-style: normal; font-size: 10px;
+  background: rgba(255,255,255,0.10);
+  padding: 2px 8px; border-radius: 10px; color: #9AA3BF;
+}
+.fc-chip.muted {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.10);
+  color: #9AA3BF;
+}
+
+.fc-chart {
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 14px 8px 6px;
+  margin-bottom: 20px;
+}
+
+.fc-section-label {
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 1px; color: #626B87;
+  margin: 18px 0 9px;
+}
+
+.fc-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.fc-table th {
+  text-align: left; padding: 9px 11px;
+  font-size: 9.5px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.8px; color: #626B87;
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+.fc-table td {
+  padding: 10px 11px;
+  color: #E8EAF2;
+  border-bottom: 1px solid rgba(255,255,255,0.045);
+}
+.fc-table tbody tr:hover { background: rgba(255,255,255,0.025); }
+.fc-table td:first-child { display: flex; align-items: center; gap: 7px; }
+.fc-table .dim  { color: #626B87; }
+.fc-table .good { color: #4ADE80; font-weight: 600; }
+.fc-table .bad  { color: #FF8A8F; }
+
+.fc-table tr.best {
+  background: rgba(29,158,117,0.09);
+}
+.fc-table tr.best td { color: #fff; font-weight: 600; }
+.fc-table tr.best td:first-child { color: #4ADE80; } 
