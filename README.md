@@ -103,6 +103,42 @@ Two different results from one pipeline. That's the whole proof — a hardcoded 
 
 ---
 
+## Automation and traceability
+
+Building a pipeline once is the easy part. The harder problems are the ones that surface afterwards: pipelines that live only in someone's head, treatments triggered by hand and occasionally forgotten, and no record of what ran, when, or with what result.
+
+In a banking environment that last point isn't a convenience. **Auditability is a regulatory expectation**, and a data flow that leaves no trace fails it regardless of how correct its output is.
+
+Three capabilities address this.
+
+**Pipelines become durable assets.** A pipeline saved from the canvas is stored as a JSONB document containing its blocks, links, configuration *and* canvas positions — so loading it restores the exact arrangement its author built, not just the logic. The stored object is precisely what the engine interprets, which means the saved pipeline and the executed one cannot drift apart.
+
+**Execution becomes automatic.** A schedule references a saved pipeline and runs it hourly, daily or weekly in a background thread, independent of any open browser. Schedules persist in the database and are reloaded when the server restarts. This is also why persistence comes first: a schedule can't reference a canvas, which is a transient state of the interface.
+
+<table>
+<tr>
+<td width="50%" valign="top">
+<img src="docs/library.png" alt="Pipeline library" width="100%"/>
+<sub><i>Saved pipelines with author and creation date. Load back onto the canvas, run directly, or delete.</i></sub>
+</td>
+<td width="50%" valign="top">
+<img src="docs/scheduler.png" alt="Scheduler" width="100%"/>
+<sub><i>Schedules bound to a saved pipeline, described in plain language, with last-run time.</i></sub>
+</td>
+</tr>
+</table>
+
+**Every execution leaves a record.** The journal captures status, timestamp, records processed and duration — for manual and scheduled runs alike, in the same place. The entry is written by the engine rather than by the interface, so an execution cannot happen without being recorded.
+
+<div align="center">
+<img src="docs/history_panel.png" alt="Execution journal" width="100%"/>
+<sub><i>Manual and automated runs in one journal. Nothing executes silently.</i></sub>
+</div>
+
+The result is that three questions have answers at any moment: **what data flows exist**, **when did each last run**, and **what did it do**. None of them had one before.
+
+---
+
 ## Forecasting
 
 The platform forecasts three warehouse series. Rather than picking a method and hoping, it **compares four and selects per series on measured accuracy.**
